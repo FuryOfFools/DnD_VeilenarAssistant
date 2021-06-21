@@ -1,4 +1,5 @@
 import 'package:dnd_veilenar_assistant/home_page/home_page.dart';
+import 'package:dnd_veilenar_assistant/wip_page/wip_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,6 +14,10 @@ class VeilenarApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => VeilenarHomePage(),
+        '/new_chararcter': (context) => WIPPage(),
+        '/connect': (context) => WIPPage(),
+        '/settings': (context) => WIPPage(),
+        '/dices': (context) => WIPPage(),
       },
       initialRoute: '/',
     );

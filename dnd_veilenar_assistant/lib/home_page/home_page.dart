@@ -1,5 +1,6 @@
+import 'package:dnd_veilenar_assistant/app/model/home_page_dice_roller.dart';
 import 'package:dnd_veilenar_assistant/home_page/widgets/dice_roller.dart';
-import 'package:dnd_veilenar_assistant/model/home_page_dice_roller.dart';
+import 'package:dnd_veilenar_assistant/home_page/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,14 +10,10 @@ class VeilenarHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SafeArea(
+        child: DrawerWidget(),
+      ),
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-          onPressed: null,
-        ),
         title: Text('D&D Ассистент'),
         backgroundColor: Colors.blue,
       ),
