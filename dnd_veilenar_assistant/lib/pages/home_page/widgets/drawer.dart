@@ -23,7 +23,7 @@ class DrawerWidget extends StatelessWidget {
           Padding(padding: const EdgeInsets.only(top: 20)),
           MenuElement(
             icon: Icons.person,
-            route: '/new_chararcter',
+            route: '/new_character',
             title: 'Новый персонаж',
           ),
           MenuElement(
