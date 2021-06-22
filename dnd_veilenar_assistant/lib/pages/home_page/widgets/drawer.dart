@@ -15,8 +15,8 @@ class DrawerWidget extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 30),
               child: Text(
-                'Вэйленар D&D',
-                style: TextStyle(color: Colors.white, fontSize: 25),
+                'Меню Ассистента',
+                style: TextStyle(color: Colors.white, fontSize: 22),
               ),
             ),
           ),

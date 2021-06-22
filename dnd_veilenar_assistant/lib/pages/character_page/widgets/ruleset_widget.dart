@@ -6,24 +6,21 @@ class RulesetWidget extends StatelessWidget {
   final String title;
   final Color color;
   final RuleSetType ruleSetType;
-  final String route;
   const RulesetWidget({
     Key? key,
     required this.title,
     required this.color,
     required this.ruleSetType,
-    required this.route,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final ruleSet = Provider.of<RuleSet>(context);
+    final ruleSet = Provider.of<RuleSetSelector>(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 30),
       child: InkWell(
         onTap: () {
           ruleSet.ruleSet = ruleSetType;
-          Navigator.pushNamed(context, route);
         },
         child: Container(
           padding: const EdgeInsets.only(top: 20, bottom: 20),

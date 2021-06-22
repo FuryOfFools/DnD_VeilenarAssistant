@@ -1,4 +1,6 @@
 import 'package:dnd_veilenar_assistant/app/model/ruleset.dart';
+import 'package:dnd_veilenar_assistant/app/model/rulesets/phb_ruleset.dart';
+import 'package:dnd_veilenar_assistant/app/model/rulesets/veilenar_ruleset.dart';
 import 'package:dnd_veilenar_assistant/pages/character_page/character_page.dart';
 import 'package:dnd_veilenar_assistant/pages/home_page/home_page.dart';
 import 'package:dnd_veilenar_assistant/pages/wip_page/wip_page.dart';
@@ -16,16 +18,23 @@ class VeilenarApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => HomePage(),
-        '/new_character': (context) => ChangeNotifierProvider<RuleSet>(
-              create: (context) => RuleSet(),
+        '/new_character': (context) => MultiProvider(
+              providers: [
+                ChangeNotifierProvider<RuleSetSelector>(
+                  create: (context) => RuleSetSelector(),
+                ),
+                ChangeNotifierProvider<PhBRuleset>(
+                  create: (context) => PhBRuleset(),
+                ),
+                ChangeNotifierProvider<VeilenarRuleset>(
+                  create: (context) => VeilenarRuleset(),
+                ),
+              ],
               child: CharacterPage(),
             ),
-        '/phb_character': (context) => WIPPage(),
-        '/veilenar_character': (context) => WIPPage(),
-        '/sw_character': (context) => WIPPage(),
+        '/dices': (context) => WIPPage(),
         '/connect': (context) => WIPPage(),
         '/settings': (context) => WIPPage(),
-        '/dices': (context) => WIPPage(),
       },
       initialRoute: '/',
     );

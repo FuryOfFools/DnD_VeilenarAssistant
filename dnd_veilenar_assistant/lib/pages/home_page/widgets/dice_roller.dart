@@ -1,4 +1,4 @@
-import 'package:dnd_veilenar_assistant/app/model/home_page_dice_roller.dart';
+import 'package:dnd_veilenar_assistant/app/model/d20_dice_roller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +10,7 @@ class DiceRollerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const Color _rollInProgressColor = Colors.pinkAccent;
     const Color _rollDoneColor = Colors.greenAccent;
-    final diceRoller = Provider.of<DiceRoller>(context);
+    final diceRoller = Provider.of<D20DiceRoller>(context);
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -43,7 +43,7 @@ class DiceRollerWidget extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () => diceRoller.rollD20(),
+            onTap: () => diceRoller.isDone ? diceRoller.rollD20() : null,
             child: Container(
               width: 200,
               height: 200,

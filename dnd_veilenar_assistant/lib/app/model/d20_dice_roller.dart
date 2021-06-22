@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class DiceRoller with ChangeNotifier {
-  DiceRoller() {
+class D20DiceRoller with ChangeNotifier {
+  D20DiceRoller() {
     _number = 20;
     _isDone = true;
   }

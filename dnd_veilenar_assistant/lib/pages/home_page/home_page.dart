@@ -1,4 +1,4 @@
-import 'package:dnd_veilenar_assistant/app/model/home_page_dice_roller.dart';
+import 'package:dnd_veilenar_assistant/app/model/d20_dice_roller.dart';
 import 'package:dnd_veilenar_assistant/pages/home_page/widgets/dice_roller.dart';
 import 'package:dnd_veilenar_assistant/pages/home_page/widgets/drawer.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +21,8 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         child: ListView(
           children: [
-            ChangeNotifierProvider<DiceRoller>(
-              create: (context) => DiceRoller(),
+            ChangeNotifierProvider<D20DiceRoller>(
+              create: (context) => D20DiceRoller(),
               child: DiceRollerWidget(),
             ),
           ],
