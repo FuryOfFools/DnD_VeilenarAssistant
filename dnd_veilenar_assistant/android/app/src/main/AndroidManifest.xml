@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dnd_veilenar_assistant">
    <application
-        android:label="dnd_veilenar_assistant"
+        android:label="DnD Ассистент"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

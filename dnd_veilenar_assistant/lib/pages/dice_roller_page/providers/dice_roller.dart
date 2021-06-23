@@ -74,8 +74,14 @@ class DiceRoller with ChangeNotifier {
         dice.diceRoll();
         _sum = _diceSum + dice.value;
       }
-      notifyListeners();
     }
+  }
+
+  void reset() {
+    _dices = [];
+    _sum = 0;
+    diceRollerState = DiceRollerState.empty;
+    notifyListeners();
   }
 
   void removeDice({required int index}) {

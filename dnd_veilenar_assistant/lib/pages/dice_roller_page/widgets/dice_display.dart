@@ -141,6 +141,26 @@ class DiceDisplayWidget extends StatelessWidget {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 15),
+              child: InkWell(
+                onTap: () => diceRoller.reset(),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 40,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.redAccent,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    'Уничтожить ВСЕ кости!',
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
