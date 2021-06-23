@@ -27,7 +27,7 @@ class DrawerWidget extends StatelessWidget {
             title: 'Новый персонаж',
           ),
           MenuElement(
-            icon: Image.asset('assets/images/dices/d20_icon.jpg'),
+            icon: Image.asset('assets/images/d20_icon.jpg'),
             route: '/dices',
             title: 'Dice Roller',
           ),

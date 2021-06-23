@@ -1,8 +1,6 @@
-import 'package:dnd_veilenar_assistant/app/model/d20_dice_roller.dart';
-import 'package:dnd_veilenar_assistant/pages/home_page/widgets/dice_roller.dart';
-import 'package:dnd_veilenar_assistant/pages/home_page/widgets/drawer.dart';
+import 'package:dnd_veilenar_assistant/pages/home_page/widgets/dice_roller_widget.dart';
+import 'package:dnd_veilenar_assistant/pages/home_page/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,10 +19,20 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         child: ListView(
           children: [
-            ChangeNotifierProvider<D20DiceRoller>(
-              create: (context) => D20DiceRoller(),
-              child: DiceRollerWidget(),
-            ),
+            DiceRollerWidget(),
+            Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Container(
+                alignment: Alignment.center,
+                child: Text(
+                  'Нет созданных персонажей',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

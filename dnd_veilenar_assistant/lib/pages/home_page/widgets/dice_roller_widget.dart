@@ -1,4 +1,4 @@
-import 'package:dnd_veilenar_assistant/app/model/d20_dice_roller.dart';
+import 'package:dnd_veilenar_assistant/pages/home_page/providers/dice_roller_d20.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +34,7 @@ class DiceRollerWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Text(
-              'Dice Roller',
+              'D20 Dice Roller',
               style: TextStyle(
                 color: Colors.blueGrey,
                 fontSize: 25,
@@ -59,7 +59,7 @@ class DiceRollerWidget extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   SvgPicture.asset(
-                    'assets/images/dices/d20.svg',
+                    'assets/images/dices/d20_home.svg',
                   ),
                   Text(
                     diceRoller.d20.toString(),

@@ -1,4 +1,4 @@
-import 'package:dnd_veilenar_assistant/app/model/ruleset.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/providers/ruleset.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
