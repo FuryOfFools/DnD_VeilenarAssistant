@@ -47,9 +47,19 @@ class DiceDisplayWidget extends StatelessWidget {
               children: [
                 Text(
                   'Результат: ${diceRoller.sum}',
+                  style: TextStyle(
+                    color: Colors.blueGrey,
+                    fontSize: 15,
+                    letterSpacing: 0.8,
+                  ),
                 ),
                 Text(
                   'Модификатор: ${diceRoller.modifier}',
+                  style: TextStyle(
+                    color: Colors.blueGrey,
+                    fontSize: 15,
+                    letterSpacing: 0.8,
+                  ),
                 ),
               ],
             ),
