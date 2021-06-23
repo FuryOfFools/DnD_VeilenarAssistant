@@ -174,7 +174,7 @@ class DiceDisplayWidget extends StatelessWidget {
                           horizontal: 20,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.blueAccent,
+                          color: Colors.greenAccent,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
@@ -193,10 +193,10 @@ class DiceDisplayWidget extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           vertical: 10,
-                          horizontal: 40,
+                          horizontal: 20,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.blueAccent,
+                          color: Colors.greenAccent,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
