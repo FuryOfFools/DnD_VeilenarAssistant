@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DiceDisplayWidget extends StatelessWidget {
-  const DiceDisplayWidget({Key? key}) : super(key: key);
+  final bool isTestFunction;
+  const DiceDisplayWidget({Key? key, required this.isTestFunction})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +162,51 @@ class DiceDisplayWidget extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
+            isTestFunction
+                ? Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: InkWell(
+                      onTap: () => diceRoller.d20WithAdvantage(),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 20,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          'D20 с преимуществом',
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                        ),
+                      ),
+                    ),
+                  )
+                : SizedBox(),
+            isTestFunction
+                ? Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: InkWell(
+                      onTap: () => diceRoller.d20WithTrouble(),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 40,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          'D20 с помехой',
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                        ),
+                      ),
+                    ),
+                  )
+                : SizedBox(),
           ],
         ),
       ),

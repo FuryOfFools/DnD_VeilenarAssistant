@@ -9,7 +9,9 @@ class DiceTableWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final diceRoller = Provider.of<DiceRoller>(context);
-    if (diceRoller.diceRollerState == DiceRollerState.notEmpty) {
+    if (diceRoller.diceRollerState == DiceRollerState.notEmpty ||
+        diceRoller.diceRollerState == DiceRollerState.d20Advantage ||
+        diceRoller.diceRollerState == DiceRollerState.d20Trouble) {
       return TableWidget(diceRoller: diceRoller);
     }
     if (diceRoller.diceRollerState == DiceRollerState.empty) {

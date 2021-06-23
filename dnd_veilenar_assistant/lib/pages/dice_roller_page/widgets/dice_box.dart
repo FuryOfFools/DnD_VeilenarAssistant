@@ -47,6 +47,7 @@ class DiceBoxWidget extends StatelessWidget {
                 children: [
                   DiceWidget(diceType: DiceType.d4),
                   DiceWidget(diceType: DiceType.d6),
+                  DiceWidget(diceType: DiceType.d8),
                   DiceWidget(diceType: DiceType.d10),
                   DiceWidget(diceType: DiceType.d12),
                   DiceWidget(diceType: DiceType.d20),

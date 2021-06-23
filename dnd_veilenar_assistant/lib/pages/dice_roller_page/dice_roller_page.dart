@@ -8,14 +8,26 @@ class DiceRollerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _testFunctions = ValueNotifier<bool>(false);
     return Scaffold(
-      appBar: AppBar(title: Text('Dice Roller')),
-      body: ListView(
-        children: [
-          DiceDisplayWidget(),
-          DiceBoxWidget(),
-          DiceTableWidget(),
+      appBar: AppBar(
+        title: Text('Dice Roller'),
+        actions: [
+          IconButton(
+            onPressed: () => _testFunctions.value = !_testFunctions.value,
+            icon: Icon(Icons.workspaces),
+          )
         ],
+      ),
+      body: ValueListenableBuilder(
+        valueListenable: _testFunctions,
+        builder: (_, bool value, __) => ListView(
+          children: [
+            DiceDisplayWidget(isTestFunction: value),
+            DiceBoxWidget(),
+            DiceTableWidget(),
+          ],
+        ),
       ),
     );
   }
