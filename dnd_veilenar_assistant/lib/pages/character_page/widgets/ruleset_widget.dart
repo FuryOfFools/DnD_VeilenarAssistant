@@ -1,6 +1,5 @@
-import 'package:dnd_veilenar_assistant/pages/character_page/providers/ruleset.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/data.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class RulesetWidget extends StatelessWidget {
   final String title;
@@ -15,13 +14,11 @@ class RulesetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ruleSet = Provider.of<RuleSetSelector>(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 30),
       child: InkWell(
-        onTap: () {
-          ruleSet.ruleSet = ruleSetType;
-        },
+        onTap: () =>
+            Navigator.pushNamed(context, ruleSetRoute[ruleSetType] ?? '/error'),
         child: Container(
           padding: const EdgeInsets.only(top: 20, bottom: 20),
           decoration: BoxDecoration(

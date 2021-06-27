@@ -19,11 +19,8 @@ const Map<RuleSetType, Color> ruleSetColor = {
   // RuleSetType.DnD_SW: Colors.blueAccent
 };
 
-class RuleSetSelector with ChangeNotifier {
-  RuleSetType _ruleSet = RuleSetType.none;
-  RuleSetType get ruleSet => _ruleSet;
-  set ruleSet(RuleSetType value) {
-    _ruleSet = value;
-    notifyListeners();
-  }
-}
+const Map<RuleSetType, String> ruleSetRoute = {
+  RuleSetType.DnD_PhB: '/phb',
+  RuleSetType.DnD_Veilenar: '/veilenar',
+  // RuleSetType.DnD_SW: '/sw'
+};

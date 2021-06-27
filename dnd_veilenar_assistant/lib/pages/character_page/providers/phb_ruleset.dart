@@ -1,4 +1,4 @@
-import 'package:dnd_veilenar_assistant/pages/character_page/providers/rulesets/rulesets.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/providers/rulesets.dart';
 import 'package:flutter/material.dart';
 
 ///Правила создания персонажа для D&D 5e Player's Handbook

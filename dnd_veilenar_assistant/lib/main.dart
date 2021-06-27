@@ -1,7 +1,8 @@
-import 'package:dnd_veilenar_assistant/pages/character_page/character_page.dart';
-import 'package:dnd_veilenar_assistant/pages/character_page/providers/ruleset.dart';
-import 'package:dnd_veilenar_assistant/pages/character_page/providers/rulesets/phb_ruleset.dart';
-import 'package:dnd_veilenar_assistant/pages/character_page/providers/rulesets/veilenar_ruleset.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/phb_page.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/providers/phb_ruleset.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/providers/veilenar_ruleset.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/select_ruleset_page.dart';
+import 'package:dnd_veilenar_assistant/pages/character_page/veilenar_page.dart';
 import 'package:dnd_veilenar_assistant/pages/dice_roller_page/dice_roller_page.dart';
 import 'package:dnd_veilenar_assistant/pages/dice_roller_page/providers/dice_roller.dart';
 import 'package:dnd_veilenar_assistant/pages/home_page/home_page.dart';
@@ -11,10 +12,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(VeilenarApp());
+  runApp(DnDApp());
 }
 
-class VeilenarApp extends StatelessWidget {
+class DnDApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,19 +25,14 @@ class VeilenarApp extends StatelessWidget {
               create: (context) => D20DiceRoller(),
               child: HomePage(),
             ),
-        '/new_character': (context) => MultiProvider(
-              providers: [
-                ChangeNotifierProvider<RuleSetSelector>(
-                  create: (context) => RuleSetSelector(),
-                ),
-                ChangeNotifierProvider<PhBRuleset>(
-                  create: (context) => PhBRuleset(),
-                ),
-                ChangeNotifierProvider<VeilenarRuleset>(
-                  create: (context) => VeilenarRuleset(),
-                ),
-              ],
-              child: CharacterPage(),
+        '/new_character': (context) => SelectRuleSetPage(),
+        '/phb': (context) => ChangeNotifierProvider<PhBRuleset>(
+              create: (context) => PhBRuleset(),
+              child: PhBPage(),
+            ),
+        '/veilenar': (context) => ChangeNotifierProvider<VeilenarRuleset>(
+              create: (context) => VeilenarRuleset(),
+              child: VeilenarPage(),
             ),
         '/dices': (context) => ChangeNotifierProvider<DiceRoller>(
               create: (context) => DiceRoller(),
@@ -44,6 +40,7 @@ class VeilenarApp extends StatelessWidget {
             ),
         '/connect': (context) => WIPPage(),
         '/settings': (context) => WIPPage(),
+        '/error': (context) => WIPPage(),
       },
       initialRoute: '/',
     );

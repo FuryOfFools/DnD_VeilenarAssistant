@@ -10,7 +10,6 @@ class DiceRollerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const Color _rollInProgressColor = Colors.pinkAccent;
     const Color _rollDoneColor = Colors.greenAccent;
-    final diceRoller = Provider.of<D20DiceRoller>(context);
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -42,43 +41,47 @@ class DiceRollerWidget extends StatelessWidget {
               ),
             ),
           ),
-          InkWell(
-            onTap: () => diceRoller.isDone ? diceRoller.rollD20() : null,
-            child: Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color:
-                      diceRoller.isDone ? _rollDoneColor : _rollInProgressColor,
-                  width: 2,
+          Consumer<D20DiceRoller>(
+            builder: (_, D20DiceRoller diceRoller, __) => InkWell(
+              onTap: () => diceRoller.isDone ? diceRoller.rollD20() : null,
+              child: Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: diceRoller.isDone
+                        ? _rollDoneColor
+                        : _rollInProgressColor,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(100),
                 ),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  SvgPicture.asset(
-                    'assets/images/dices/d20_home.svg',
-                  ),
-                  Text(
-                    diceRoller.d20.toString(),
-                    style: TextStyle(fontSize: 38, color: Colors.white),
-                  ),
-                ],
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/images/dices/d20_home.svg',
+                    ),
+                    Text(
+                      diceRoller.d20.toString(),
+                      style: TextStyle(fontSize: 38, color: Colors.white),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5),
-            child: Text(
-              diceRoller.isDone
-                  ? 'Click on dice to roll'
-                  : 'Roll in progress...',
-              style: TextStyle(
-                color: Colors.blueGrey,
-                fontSize: 17,
-                letterSpacing: 0.8,
+          Selector<D20DiceRoller, bool>(
+            selector: (_, D20DiceRoller diceRoller) => diceRoller.isDone,
+            builder: (_, bool isDone, __) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: Text(
+                isDone ? 'Click on dice to roll' : 'Roll in progress...',
+                style: TextStyle(
+                  color: Colors.blueGrey,
+                  fontSize: 17,
+                  letterSpacing: 0.8,
+                ),
               ),
             ),
           ),
