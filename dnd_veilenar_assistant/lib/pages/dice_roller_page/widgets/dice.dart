@@ -2,7 +2,7 @@ import 'package:dnd_veilenar_assistant/pages/dice_roller_page/providers/dice_rol
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DiceWidget extends StatelessWidget {
+class DiceWidget extends StatefulWidget {
   final DiceType diceType;
   final bool isPreview;
   final int index;
@@ -14,34 +14,39 @@ class DiceWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _DiceWidgetState createState() => _DiceWidgetState();
+}
+
+class _DiceWidgetState extends State<DiceWidget> {
+  @override
   Widget build(BuildContext context) {
     final diceRoller = Provider.of<DiceRoller>(context);
     return InkWell(
-      onTap: () => isPreview
-          ? diceRoller.addDice(diceType: diceType)
-          : diceRoller.removeDice(index: index),
+      onTap: () => widget.isPreview
+          ? diceRoller.addDice(diceType: widget.diceType)
+          : diceRoller.removeDice(index: widget.index),
       child: Container(
         child: Stack(
           alignment: Alignment.center,
           children: [
             Image.asset(
-              'assets/images/dices/${dicePath[diceType]}',
+              'assets/images/dices/${dicePath[widget.diceType]}',
               width: 50,
             ),
-            diceType == DiceType.d4
+            widget.diceType == DiceType.d4
                 ? Padding(
                     padding: const EdgeInsets.only(top: 5),
                     child: Text(
-                      isPreview
-                          ? diceMaxValue[diceType].toString()
-                          : diceRoller.dices[index].value.toString(),
+                      widget.isPreview
+                          ? diceMaxValue[widget.diceType].toString()
+                          : diceRoller.dices[widget.index].value.toString(),
                       style: TextStyle(fontSize: 17, color: Colors.white),
                     ),
                   )
                 : Text(
-                    isPreview
-                        ? diceMaxValue[diceType].toString()
-                        : diceRoller.dices[index].value.toString(),
+                    widget.isPreview
+                        ? diceMaxValue[widget.diceType].toString()
+                        : diceRoller.dices[widget.index].value.toString(),
                     style: TextStyle(fontSize: 17, color: Colors.white),
                   ),
           ],

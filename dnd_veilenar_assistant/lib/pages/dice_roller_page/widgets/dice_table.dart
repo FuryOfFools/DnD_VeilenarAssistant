@@ -3,9 +3,14 @@ import 'package:dnd_veilenar_assistant/pages/dice_roller_page/widgets/dice.dart'
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DiceTableWidget extends StatelessWidget {
+class DiceTableWidget extends StatefulWidget {
   const DiceTableWidget({Key? key}) : super(key: key);
 
+  @override
+  _DiceTableWidgetState createState() => _DiceTableWidgetState();
+}
+
+class _DiceTableWidgetState extends State<DiceTableWidget> {
   @override
   Widget build(BuildContext context) {
     final diceRoller = Provider.of<DiceRoller>(context);
