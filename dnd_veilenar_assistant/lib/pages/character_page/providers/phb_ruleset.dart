@@ -2,7 +2,7 @@ import 'package:dnd_veilenar_assistant/pages/character_page/providers/rulesets.d
 import 'package:flutter/material.dart';
 
 ///Правила создания персонажа для D&D 5e Player's Handbook
-class PhBRuleset
+class PhBRuleset extends JsonInterface
     with ChangeNotifier
     implements
         PhBInfo,
@@ -14,14 +14,33 @@ class PhBRuleset
         PhBSkills,
         PhBFeats,
         PhBEquipment,
-        isEmptyInterface {
+        IsEmptyInterface {
   PhBRuleset({
     this.name = '',
     this.raceName = '',
     this.allignment = '',
     this.origin = '',
     this.xp = 0,
-  });
+  }) : super();
+
+  @override
+  factory PhBRuleset.fromMap(Map<String, dynamic> map) => PhBRuleset(
+        name: map['name'],
+        raceName: map['raceName'],
+        allignment: map['allignment'],
+        origin: map['origin'],
+        xp: map['xp'],
+      );
+
+  @override
+  Map<String, dynamic> toMap() => {
+        'name': name,
+        'raceName': raceName,
+        'allignment': allignment,
+        'origin': origin,
+        'xp': xp,
+      };
+
   @override
   String name;
   @override

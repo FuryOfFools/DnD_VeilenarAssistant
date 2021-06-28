@@ -2,7 +2,7 @@ import 'package:dnd_veilenar_assistant/pages/character_page/providers/rulesets.d
 import 'package:flutter/material.dart';
 
 ///Правила создания персонажа для D&D Veilenar
-class VeilenarRuleset
+class VeilenarRuleset extends JsonInterface
     with ChangeNotifier
     implements
         VeilenarInfo,
@@ -14,7 +14,7 @@ class VeilenarRuleset
         VeilenarSkills,
         VeilenarFeats,
         VeilenarEquipment,
-        isEmptyInterface {
+        IsEmptyInterface {
   VeilenarRuleset({
     this.name = '',
     this.raceName = '',
@@ -22,6 +22,24 @@ class VeilenarRuleset
     this.origin = '',
     this.xp = 0,
   });
+
+  @override
+  factory VeilenarRuleset.fromMap(Map<String, dynamic> map) => VeilenarRuleset(
+        name: map['name'],
+        raceName: map['raceName'],
+        allignment: map['allignment'],
+        origin: map['origin'],
+        xp: map['xp'],
+      );
+
+  @override
+  Map<String, dynamic> toMap() => {
+        'name': name,
+        'raceName': raceName,
+        'allignment': allignment,
+        'origin': origin,
+        'xp': xp,
+      };
   @override
   String name;
   @override

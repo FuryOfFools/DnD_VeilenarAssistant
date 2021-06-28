@@ -40,6 +40,12 @@ abstract class Feats {}
 ///Инвентарь персонажа. Золото, контейнеры и их содержимое, надетое снаряжение и их описание.
 abstract class Equipment {}
 
-abstract class isEmptyInterface {
+abstract class IsEmptyInterface {
   bool isEmpty();
+}
+
+abstract class JsonInterface {
+  JsonInterface();
+  JsonInterface.fromMap(Map<String, dynamic> map);
+  Map<String, dynamic> toMap();
 }
