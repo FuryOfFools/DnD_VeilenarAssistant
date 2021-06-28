@@ -9,7 +9,7 @@ enum RuleSetType {
 
 const Map<RuleSetType, String> ruleSetTitle = {
   RuleSetType.DnD_PhB: "D&D 5e Player's Handbook",
-  RuleSetType.DnD_Veilenar: 'D&D 5e Вэйленар',
+  RuleSetType.DnD_Veilenar: 'D&D 5e Veilenar',
   // RuleSetType.DnD_SW: 'D&D 5e Star Wars'
 };
 

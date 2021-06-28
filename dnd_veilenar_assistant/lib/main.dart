@@ -11,7 +11,7 @@ import 'package:dnd_veilenar_assistant/pages/wip_page/wip_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
   runApp(DnDApp());
 }
 

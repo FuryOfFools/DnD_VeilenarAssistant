@@ -13,10 +13,54 @@ class VeilenarRuleset
         VeilenarStatus,
         VeilenarSkills,
         VeilenarFeats,
-        VeilenarEquipment {}
+        VeilenarEquipment,
+        isEmptyInterface {
+  VeilenarRuleset({
+    this.name = '',
+    this.raceName = '',
+    this.allignment = '',
+    this.origin = '',
+    this.xp = 0,
+  });
+  @override
+  String name;
+  @override
+  String raceName;
+  @override
+  String allignment;
+  @override
+  String origin;
+  @override
+  int xp;
+
+  @override
+  bool isEmpty() {
+    if (name == '' &&
+        raceName == '' &&
+        allignment == '' &&
+        origin == '' &&
+        xp == 0) return true;
+    return false;
+  }
+}
 
 ///Базовая информация о персонаже. Имя, раса, классы и их уровни, происхождение, мировоззрение и опыт.
-class VeilenarInfo implements Info {}
+abstract class VeilenarInfo implements Info {
+  @override
+  late String name;
+
+  @override
+  late String raceName;
+
+  @override
+  late String allignment;
+
+  @override
+  late String origin;
+
+  @override
+  late int xp;
+}
 
 ///Описывает все расовые особенности персонажа. Содержит список всех доступных рас.
 class VeilenarRace implements Race {}
