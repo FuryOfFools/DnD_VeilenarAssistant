@@ -48,10 +48,15 @@ class EmptyTableWidget extends StatelessWidget {
   }
 }
 
-class TableWidget extends StatelessWidget {
+class TableWidget extends StatefulWidget {
   final DiceRoller diceRoller;
   const TableWidget({Key? key, required this.diceRoller}) : super(key: key);
 
+  @override
+  _TableWidgetState createState() => _TableWidgetState();
+}
+
+class _TableWidgetState extends State<TableWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -90,7 +95,7 @@ class TableWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: Column(
-                children: _getAllRows(diceRoller.dices),
+                children: _getAllRows(widget.diceRoller.dices),
               ),
             ),
           ],
