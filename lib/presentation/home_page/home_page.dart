@@ -1,5 +1,5 @@
-import 'package:dnd_veilenar_assistant/pages/home_page/widgets/dice_roller_widget.dart';
-import 'package:dnd_veilenar_assistant/pages/home_page/widgets/drawer_widget.dart';
+import 'package:dnd_veilenar_assistant/presentation/home_page/widgets/dice_roller_widget.dart';
+import 'package:dnd_veilenar_assistant/presentation/home_page/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

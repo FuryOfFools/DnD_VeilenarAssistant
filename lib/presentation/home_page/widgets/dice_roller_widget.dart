@@ -1,4 +1,4 @@
-import 'package:dnd_veilenar_assistant/pages/home_page/providers/dice_roller_d20.dart';
+import 'package:dnd_veilenar_assistant/presentation/home_page/providers/dice_roller_d20.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';

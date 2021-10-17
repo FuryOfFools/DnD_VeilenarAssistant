@@ -1,5 +1,5 @@
-import 'package:dnd_veilenar_assistant/pages/dice_roller_page/providers/dice_roller.dart';
-import 'package:dnd_veilenar_assistant/pages/dice_roller_page/widgets/dice.dart';
+import 'package:dnd_veilenar_assistant/presentation/dice_roller_page/providers/dice_roller.dart';
+import 'package:dnd_veilenar_assistant/presentation/dice_roller_page/widgets/dice.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
